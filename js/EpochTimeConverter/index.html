@@ -1,0 +1,72 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>Epoch Time Converter</title>
+</head>
+<body>
+	<div>
+		<p>Date: <input type="date" name="humandate" id="hdate" value="2000-01-01">
+			Time: <input type="time" name="humantime" id="htime">
+			<input type="button" name="convert" id="bconvert" value="Convert" onclick="buttonPush()">
+		</p>
+		<h1 id="epoTime"></h1><br>
+		<table id="myTable" >
+			<tr>
+				<th>Epoch Time </th>
+				<th>Human Readable Time</th>
+			</tr>
+		</table>
+	</div>
+	<script>
+		function buttonPush() {
+			let date = document.getElementById("hdate").value;
+			let time = document.getElementById("htime").value;
+			let output = document.getElementById("epoTime");
+			let tableRef = document.getElementById("myTable").getElementsByTagName("tbody")[0];
+			inputArray = timeExtract(date, time);
+			let myDate = new Date(...inputArray,0,0);
+			console.log(myDate);
+			let myEpoch = myDate.getTime()/1000.0;
+			console.log(myEpoch);
+			output.innerHTML = myEpoch;
+			document.getElementById("myTable").style.visibility = "visible";
+			let newRow = tableRef.insertRow(tableRef.rows.length);
+			let newCell1 = newRow.insertCell(0);
+			let newCell2 = newRow.insertCell(1);
+			let newText1 = document.createTextNode(myEpoch);
+			newCell1.appendChild(newText1);
+			let newText2 = document.createTextNode(myDate);
+			newCell2.appendChild(newText2);
+		}
+
+		function timeExtract(hdate, htime) {
+			let dateArray = hdate.split("-");
+			dateArray = dateArray.map(Number);
+			let timeArray = htime.split(":");
+			timeArray = timeArray.map(Number);
+			returnArray = [];
+			for (let i = 0; i < dateArray.length; i++) {
+				if (i == 1) {
+					dateArray[i] -= 1;
+				}
+				returnArray.push(dateArray[i]);
+			}
+			for (let i = 0; i < timeArray.length; i++) {
+				returnArray.push(timeArray[i]);
+			}
+			return returnArray;
+		}
+	</script>
+</body>
+<style>
+	table {
+		border-collapse: collapse;
+		visibility: hidden;
+	}
+	th, td {
+		border: 1px solid black;
+		padding: 10px;
+		text-align: left;
+	}
+</style>
+</html>
