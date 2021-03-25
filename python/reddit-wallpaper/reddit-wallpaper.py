@@ -8,8 +8,6 @@ from tqdm import tqdm, trange
 
 secret = ""
 client_id = ""
-username = ""
-password = ""
 
 wp_dir_prefix = "/home/eweishaar/wallpapers"
 k1_dir = wp_dir_prefix + "/1920x1080"
@@ -19,8 +17,6 @@ k4_dir = wp_dir_prefix + "/3840x2160"
 dir_list = [k1_dir, k2_dir, k4_dir]
 
 with open("secret", "r") as f:
-    username = f.readline().strip()
-    password = f.readline().strip()
     client_id = f.readline().strip()
     secret = f.readline().strip()
 
