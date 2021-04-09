@@ -2,7 +2,6 @@
 
 import requests
 import json
-import os
 
 # API key on file on local machine for security
 api_key = ""
