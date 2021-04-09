@@ -15,7 +15,7 @@ with open(api_prefix + "scripts\\python\\tautulli\\api.txt", "r") as f:
 
 def get_user_cr():
 	users = {}
-	with open("tautulli_users.json", "r") as f:
+	with open(api_prefix + "scripts\\python\\tautulli\\tautulli_users.json", "r") as f:
 		users = json.load(f)
 	return users
 
