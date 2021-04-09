@@ -1,5 +1,6 @@
 python/tautulli/api.txt
 python/tautulli/tautulli_users.json
+python/tautulli/__pycache__
 python/reddit-wallpaper/secret
 python/reddit-wallpaper/client_id
 python/venvs
