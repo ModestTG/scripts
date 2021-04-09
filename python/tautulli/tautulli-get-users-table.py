@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import tautulli_api
 import json
 
