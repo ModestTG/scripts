@@ -45,7 +45,7 @@ def main():
         for i in activity["response"]["data"]["sessions"]:
             temp_dir = {}
             val_global = [activity["response"]["data"][x] for x in global_list]
-            temp_dir.update(dict(zip([f"t_{x}" for x in global_list], val_global)))
+            temp_dir.update(dict(zip([f"f_{x}" for x in global_list], val_global)))
             val_session = [i[x] for x in session_list]
             temp_dir.update(dict(zip([f"t_{x}" for x in session_list], val_session)))
             temp_dir["t_measurement"] = measurement
