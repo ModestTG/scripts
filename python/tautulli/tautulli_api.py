@@ -30,3 +30,9 @@ def get_activity():
 	url = f"{base_url}get_activity"
 	response = requests.get(url)
 	return response.json()
+
+
+def get_libraries_table():
+	url = f"{base_url}get_libraries_table"
+	response = requests.get(url)
+	return response.json()
