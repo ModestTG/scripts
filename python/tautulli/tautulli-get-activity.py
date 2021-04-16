@@ -50,7 +50,7 @@ def main():
             temp_dir.update(dict(zip([f"t_{x}" for x in session_list], val_session)))
             temp_dir["t_measurement"] = measurement
             temp_dir["fs_hash"] = hashlib.md5(f'{i["session_id"]}{i["session_key"]}{i["username"]}{i["full_title"]}'.encode("utf-8")).hexdigest()
-            temp_dir["t_stream_count"] = int(temp_dir["t_stream_count"])
+            temp_dir["f_stream_count"] = int(temp_dir["f_stream_count"])
             # print(temp_dir)
             for j in users.items():
                 if j[0] == i["username"]:
