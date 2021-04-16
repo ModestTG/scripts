@@ -37,7 +37,7 @@ def main():
             if j[0] == i["username"]:
                 i["friendly_name"] = j[1]
                 break
-        i["measurement"] = measurement
+        i["t_measurement"] = measurement
         output_list.append(i)
     print(json.dumps(output_list))
 
