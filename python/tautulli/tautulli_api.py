@@ -6,9 +6,9 @@ import json
 # API key on file on local machine for security
 api_key = ""
 base_url = ""
-api_prefix = "E:\\Code\\"  # Change this based on git location
+api_prefix = "/home/eweishaar/"  # Change this based on git location
 
-with open(api_prefix + "scripts\\python\\tautulli\\api.txt", "r") as f:
+with open(api_prefix + "scripts/python/tautulli/api.txt", "r") as f:
 	api_key = str.strip(f.read())
 	base_url = f"http://esxi.local:8181/api/v2?apikey={api_key}&cmd="
 
