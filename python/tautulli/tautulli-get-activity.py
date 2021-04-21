@@ -10,7 +10,7 @@ def main():
     activity = tautulli_api.get_activity()
     users = tautulli_api.get_user_cr()
     output_list = []
-    global_list = [
+    fields = [
         "stream_count",
         "stream_count_direct_play",
         "stream_count_direct_stream",
@@ -19,7 +19,7 @@ def main():
         "lan_bandwidth",
         "wan_bandwidth"
     ]
-    session_list = [
+    tags = [
         "username",
         "full_title",
         "friendly_name",
@@ -35,19 +35,19 @@ def main():
     ]
     if int(activity["response"]["data"]["stream_count"]) == 0:
         temp_dir = {}
-        zero_vals = [0 for x in global_list]
-        empty_str = ["" for x in session_list]
-        temp_dir.update(dict(zip(global_list, zero_vals)))
-        temp_dir.update(dict(zip(session_list, empty_str)))
+        zero_vals = [0 for x in fields]
+        empty_str = ["" for x in tags]
+        temp_dir.update(dict(zip(fields, zero_vals)))
+        temp_dir.update(dict(zip(tags, empty_str)))
         output_list.append(temp_dir)
         print(json.dumps(output_list))
     else:
         for i in activity["response"]["data"]["sessions"]:
             temp_dir = {}
-            val_global = [activity["response"]["data"][x] for x in global_list]
-            temp_dir.update(dict(zip([f"f_{x}" for x in global_list], val_global)))
-            val_session = [i[x] for x in session_list]
-            temp_dir.update(dict(zip([f"t_{x}" for x in session_list], val_session)))
+            val_global = [activity["response"]["data"][x] for x in fields]
+            temp_dir.update(dict(zip([f"f_{x}" for x in fields], val_global)))
+            val_session = [i[x] for x in tags]
+            temp_dir.update(dict(zip([f"t_{x}" for x in tags], val_session)))
             temp_dir["t_measurement"] = measurement
             temp_dir["fs_hash"] = hashlib.md5(f'{i["session_id"]}{i["session_key"]}{i["username"]}{i["full_title"]}'.encode("utf-8")).hexdigest()
             temp_dir["f_stream_count"] = int(temp_dir["f_stream_count"])
