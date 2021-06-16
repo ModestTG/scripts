@@ -14,11 +14,10 @@ path = sys.argv[2]
 
 
 def main():
-    if os.name == "posix":
-        rename_posix(prefix, path)
+    rename(prefix, path)
 
 
-def rename_posix(prefix, path):
+def rename(prefix, path):
     random_names_list = sorted(
         [
             "".join(random.choices(string.ascii_letters + string.digits, k=16))
