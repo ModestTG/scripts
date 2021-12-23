@@ -4,6 +4,7 @@ python/tautulli/__pycache__
 python/reddit-wallpaper/secret
 python/reddit-wallpaper/client_id
 python/venvs
+python/backups/*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
