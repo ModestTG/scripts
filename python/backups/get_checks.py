@@ -4,6 +4,7 @@ import requests
 import json
 import get_api
 
+# ./get_checks.py <HCProjectName>
 api_ro = get_api.api(sys.argv[1], "ro")
 
 with open(f'hc_endpoints_{sys.argv[1].replace(" ", "_").lower()}.json', "w") as f:
