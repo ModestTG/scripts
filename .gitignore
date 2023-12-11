@@ -5,6 +5,10 @@ python/reddit-wallpaper/secret
 python/reddit-wallpaper/client_id
 python/venvs
 python/backups/*.json
+python/**/bin
+python/**/include
+python/**/lib*
+python/**/pyvenv.cfg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
